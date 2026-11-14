@@ -22,25 +22,23 @@ for (const f of ["js/config.js", "js/notes.js"]) {
 const cfg = sandbox.window.DECK_CONFIG || {};
 const notes = sandbox.window.SPEAKER_NOTES || {};
 
-for (const f of ["js/deck.js", "js/notes-render.js"]) {
+for (const f of ["js/site.js", "js/notes-render.js"]) {
   try { new vm.Script(read(f), { filename: f }); ok(`${f} parses`); }
   catch (e) { fail(`${f} has a syntax error: ${e.message}`); }
 }
 
 const html = read("index.html");
-const ids = [...html.matchAll(/class="slide[^"]*"[^>]*data-id="([^"]+)"/g)].map((m) => m[1]);
-console.log(`\nSlides (${ids.length}):`);
-new Set(ids).size === ids.length ? ok("slide ids are unique") : fail("duplicate slide ids");
-
-const sections = new Set([...html.matchAll(/data-section="(\d+)"/g)].map((m) => m[1]));
-sections.size === 8 ? ok("all 8 sections present") : fail(`expected 8 sections, found ${sections.size}`);
-const titled = [...html.matchAll(/data-section-title="/g)].length;
-titled === 8 ? ok("each section has one agenda title") : fail(`expected 8 section titles, found ${titled}`);
+const ids = [...html.matchAll(/<section class="section[^"]*" id="([^"]+)"/g)].map((m) => m[1]);
+console.log(`\nSections (${ids.length}):`);
+ids.length === 8 ? ok("all 8 sections present") : fail(`expected 8 sections, found ${ids.length}`);
+new Set(ids).size === ids.length ? ok("section ids are unique") : fail("duplicate section ids");
+const navTargets = [...html.matchAll(/class="nav__menu"[\s\S]*?<\/ul>/g)][0]?.[0].match(/href="#([^"]+)"/g)?.map((h) => h.slice(7, -1)) || [];
+ids.every((id) => navTargets.includes(id)) ? ok("every section is in the navigation") : fail("navigation is missing a section");
 
 console.log("\nSpeaker notes:");
-for (const id of ids) notes[id] ? null : fail(`missing notes for "${id}"`);
-for (const id of Object.keys(notes)) ids.includes(id) ? null : warn(`notes for unknown slide "${id}"`);
-if (ids.every((id) => notes[id])) ok("every slide has notes");
+for (const id of ids) notes[id] ? null : fail(`missing notes for section "${id}"`);
+for (const id of Object.keys(notes)) ids.includes(id) ? null : warn(`notes for unknown section "${id}"`);
+if (ids.every((id) => notes[id])) ok("every section has notes");
 
 console.log("\nLinks & config:");
 const linkKeys = [...new Set([...html.matchAll(/data-link="([^"]+)"/g)].map((m) => m[1]))];
@@ -56,6 +54,7 @@ for (const k of textKeys) {
   else if (v === "") warn(`config "${k}" is empty (placeholder shown)`);
 }
 for (const s of cfg.demoScreenshots || []) {
+  if (/^https?:/.test(s.file)) continue;
   if (!existsSync(path.join(root, s.file))) warn(`backup screenshot missing: ${s.file}`);
 }
 
@@ -64,7 +63,7 @@ for (const f of [...html.matchAll(/(?:src|href)="((?:css|js|assets)\/[^"]+)"/g)]
   existsSync(path.join(root, f)) ? null : fail(`referenced file missing: ${f}`);
 }
 ok("referenced local files checked");
-const allJs = ["js/config.js", "js/notes.js", "js/deck.js", "index.html", "presenter.html"].map(read).join("\n");
+const allJs = ["js/config.js", "js/notes.js", "js/site.js", "index.html", "presenter.html"].map(read).join("\n");
 /(sk-[A-Za-z0-9]{20,}|api[_-]?key\s*[:=]\s*["'][^"']+["']|ghp_[A-Za-z0-9]{20,})/i.test(allJs)
   ? fail("possible API key or secret found in client-side code")
   : ok("no API keys or secrets found");

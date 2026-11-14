@@ -8,57 +8,53 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    body { overflow: auto; }
     body::after { display: none; }
-    .pv { display: grid; grid-template-columns: 1.6fr 1fr; grid-template-rows: auto 1fr auto; gap: 1rem; height: 100vh; padding: 1rem; }
-    .pv__bar { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; color: var(--text-dim); }
+    .pv { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: auto 1fr auto; gap: 1rem; min-height: 100vh; padding: 1rem; }
+    .pv__bar { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.5rem; color: var(--text-dim); font-size: 1rem; flex-wrap: wrap; }
     .pv__bar strong { color: var(--text); }
-    .pv__clock { font-family: var(--mono); font-size: 1.6rem; color: var(--text); }
-    .pv__timer { font-family: var(--mono); font-size: 1.6rem; color: var(--accent); }
     .pv__spacer { flex: 1; }
-    .pv__main { display: grid; grid-template-rows: auto auto; gap: .5rem; align-content: start; min-height: 0; }
-    .pv__side { display: grid; grid-template-rows: auto auto 1fr; gap: .5rem; min-height: 0; }
-    .pv__label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); }
-    .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; background: var(--bg); }
-    .frame iframe { position: absolute; top: 0; left: 0; width: 1600px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
-    .frame--current { border-color: var(--accent); }
-    .pv__notes { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.2rem; overflow: auto; font-size: 1.15rem; line-height: 1.5; min-height: 0; }
-    .pv__notes .notes h4 { font-size: .8rem; }
+    .pv__time { font-family: var(--mono); font-size: 1.6rem; color: var(--text); }
+    .pv__timer { color: var(--accent); }
+    .pv__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; align-content: start; }
+    .pv__list button { width: 100%; text-align: left; display: flex; gap: .7rem; padding: .65rem .8rem; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--text-dim); font: inherit; font-size: .95rem; cursor: pointer; }
+    .pv__list button:hover { border-color: var(--accent); color: var(--text); }
+    .pv__list button.is-current { background: var(--accent-soft); border-color: var(--accent); color: var(--text); }
+    .pv__list span { font-family: var(--mono); color: var(--accent); }
+    .pv__main { display: grid; grid-template-rows: auto 1fr; gap: .8rem; min-height: 0; }
+    .pv__now { font-size: clamp(1.4rem, 2.4vw, 2.2rem); font-weight: 750; }
+    .pv__next { color: var(--text-faint); font-size: 1rem; margin-top: .3rem; }
+    .pv__notes { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem 1.4rem; overflow: auto; font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.55; }
     .pv__controls { grid-column: 1 / -1; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
-    .pv__status { color: var(--text-faint); font-size: .9rem; margin-left: auto; }
+    .pv__status { margin-left: auto; color: var(--text-faint); font-size: .9rem; }
     .pv__status.is-ok { color: var(--human); }
-    .pv__end { display: grid; place-items: center; height: 100%; color: var(--text-faint); font-family: var(--mono); }
-    @media (max-width: 900px) { .pv { grid-template-columns: 1fr; height: auto; } }
+    @media (max-width: 800px) { .pv { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="pv">
     <header class="pv__bar">
       <strong>Presenter view</strong>
-      <span id="pvSection"></span>
       <span class="pv__spacer"></span>
-      <span>Slide <strong id="pvCounter">–</strong></span>
-      <span>Elapsed <span class="pv__timer" id="pvTimer">00:00</span></span>
+      <span>Elapsed <span class="pv__time pv__timer" id="pvTimer">00:00</span></span>
       <button class="btn btn--ghost btn--sm" type="button" id="pvTimerReset" title="Reset timer (R)">Reset</button>
-      <span class="pv__clock" id="pvClock">--:--</span>
+      <span class="pv__time" id="pvClock">--:--</span>
     </header>
 
-    <section class="pv__main" aria-label="Current slide">
-      <span class="pv__label">Now on screen · <span id="pvCurrentLabel"></span></span>
-      <div class="frame frame--current"><iframe id="frameCurrent" title="Current slide preview" src="index.html?preview" tabindex="-1"></iframe></div>
-    </section>
+    <nav aria-label="Sections"><ol class="pv__list" id="pvList"></ol></nav>
 
-    <section class="pv__side" aria-label="Next slide and notes">
-      <span class="pv__label">Next · <span id="pvNextLabel"></span></span>
-      <div class="frame"><iframe id="frameNext" title="Next slide preview" src="index.html?preview" tabindex="-1"></iframe><div class="pv__end" id="pvEnd" hidden>End of presentation</div></div>
-      <div class="pv__notes" id="pvNotes" aria-live="polite"><p class="hint">Waiting for the main presentation window…</p></div>
+    <section class="pv__main" aria-live="polite">
+      <div>
+        <div class="pv__now" id="pvNow">Waiting for the event page…</div>
+        <div class="pv__next" id="pvNext"></div>
+      </div>
+      <div class="pv__notes" id="pvNotes"><p class="hint">Open this window with <kbd>P</kbd> from the event page.</p></div>
     </section>
 
     <footer class="pv__controls">
-      <button class="btn" type="button" id="pvPrev">‹ Previous</button>
-      <button class="btn btn--primary" type="button" id="pvNext">Next ›</button>
+      <button class="btn" type="button" id="pvPrev">‹ Previous section</button>
+      <button class="btn btn--primary" type="button" id="pvNext2">Next section ›</button>
       <button class="btn btn--ghost" type="button" id="pvBlack" title="Blank the audience screen (B)">Blank screen</button>
-      <span class="hint" style="margin:0">Keys: <kbd>←</kbd> <kbd>→</kbd> <kbd>Space</kbd> · <kbd>B</kbd> blank · <kbd>R</kbd> reset timer</span>
+      <span class="hint">Keys: <kbd>←</kbd> <kbd>→</kbd> sections · <kbd>B</kbd> blank · <kbd>R</kbd> reset timer</span>
       <span class="pv__status" id="pvStatus">Not connected</span>
     </footer>
   </div>
@@ -70,9 +66,7 @@
     "use strict";
     var APP = "qa-citizen-dev-deck";
     var $ = function (id) { return document.getElementById(id); };
-    var channel = null;
-    var seq = 0;
-    var connected = false;
+    var channel = null, seq = 0, connected = false, listBuilt = false;
 
     function send(msg) {
       msg.app = APP;
@@ -81,66 +75,45 @@
       if (window.opener && !window.opener.closed) try { window.opener.postMessage(msg, "*"); } catch (e) {}
     }
 
-    function show(frame, index, step) {
-      try { frame.contentWindow.postMessage({ type: "show", index: index, step: step }, "*"); } catch (e) {}
-    }
-
-    var last = null;
     function onState(m) {
       if (!m || m.type !== "state") return;
-      last = m;
-      if (!connected) { connected = true; $("pvStatus").textContent = "Connected to presentation"; $("pvStatus").classList.add("is-ok"); }
-      $("pvCounter").textContent = (m.index + 1) + " / " + m.total + (m.steps ? "  (step " + m.step + "/" + m.steps + ")" : "");
-      $("pvSection").textContent = m.section || "";
-      $("pvCurrentLabel").textContent = m.label || "";
-      $("pvNotes").innerHTML = window.renderNotes(m.id);
-      show($("frameCurrent"), m.index, m.step);
-      if (m.next) {
-        $("pvEnd").hidden = true; $("frameNext").style.visibility = "visible";
-        $("pvNextLabel").textContent = m.next.label + (m.next.index === m.index ? " (next step)" : "");
-        show($("frameNext"), m.next.index, m.next.step);
-      } else {
-        $("pvEnd").hidden = false; $("frameNext").style.visibility = "hidden";
-        $("pvNextLabel").textContent = "—";
+      if (!connected) { connected = true; $("pvStatus").textContent = "Connected to event page"; $("pvStatus").classList.add("is-ok"); }
+      if (!listBuilt && m.sections) {
+        m.sections.forEach(function (s, i) {
+          var li = document.createElement("li"), b = document.createElement("button");
+          b.type = "button";
+          b.innerHTML = "<span>" + (i + 1) + "</span>";
+          b.appendChild(document.createTextNode(s.label));
+          b.addEventListener("click", function () { send({ type: "cmd", action: "go", index: i }); });
+          li.appendChild(b); $("pvList").appendChild(li);
+        });
+        listBuilt = true;
       }
+      Array.prototype.forEach.call($("pvList").querySelectorAll("button"), function (b, i) { b.classList.toggle("is-current", i === m.index); });
+      $("pvNow").textContent = (m.index + 1) + " · " + m.label;
+      var nx = m.sections && m.sections[m.index + 1];
+      $("pvNext").textContent = nx ? "Next: " + nx.label : "Last section";
+      $("pvNotes").innerHTML = window.renderNotes(m.id);
     }
 
     if ("BroadcastChannel" in window) {
       try { channel = new BroadcastChannel(APP); channel.onmessage = function (e) { onState(e.data); }; } catch (e) {}
     }
-    window.addEventListener("message", function (e) {
-      if (e.source === window.opener) onState(e.data);
-    });
+    window.addEventListener("message", function (e) { if (e.source === window.opener) onState(e.data); });
 
-    // Re-send state into the iframes once they have loaded
-    ["frameCurrent", "frameNext"].forEach(function (id) {
-      $(id).addEventListener("load", function () { if (last) onState(last); });
-    });
-
-    // Scale the 1600×900 previews to fit their frames
-    function fit() {
-      document.querySelectorAll(".frame").forEach(function (f) {
-        var ifr = f.querySelector("iframe");
-        ifr.style.transform = "scale(" + (f.clientWidth / 1600) + ")";
-      });
-    }
-    window.addEventListener("resize", fit); fit();
-
-    // Controls
-    $("pvNext").addEventListener("click", function () { send({ type: "cmd", action: "next" }); });
+    $("pvNext2").addEventListener("click", function () { send({ type: "cmd", action: "next" }); });
     $("pvPrev").addEventListener("click", function () { send({ type: "cmd", action: "prev" }); });
     $("pvBlack").addEventListener("click", function () { send({ type: "blackout" }); });
     document.addEventListener("keydown", function (e) {
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       switch (e.key) {
-        case "ArrowRight": case "PageDown": case " ": case "ArrowDown": e.preventDefault(); send({ type: "cmd", action: "next" }); break;
+        case "ArrowRight": case "PageDown": case "ArrowDown": e.preventDefault(); send({ type: "cmd", action: "next" }); break;
         case "ArrowLeft": case "PageUp": case "ArrowUp": e.preventDefault(); send({ type: "cmd", action: "prev" }); break;
         case "b": case "B": case ".": send({ type: "blackout" }); break;
         case "r": case "R": resetTimer(); break;
       }
     });
 
-    // Clock & timer
     var t0 = Date.now();
     function pad(n) { return String(n).padStart(2, "0"); }
     function resetTimer() { t0 = Date.now(); tick(); }
@@ -153,11 +126,8 @@
     $("pvTimerReset").addEventListener("click", resetTimer);
     setInterval(tick, 1000); tick();
 
-    // Ask the main window for its current state
     send({ type: "hello" });
-    setTimeout(function () {
-      if (!connected) $("pvStatus").textContent = "Not connected: open this window with P from the main presentation";
-    }, 1500);
+    setTimeout(function () { if (!connected) $("pvStatus").textContent = "Not connected: open this window with P from the event page"; }, 1500);
   })();
   </script>
 </body>
