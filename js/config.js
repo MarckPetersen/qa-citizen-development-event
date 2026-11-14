@@ -44,11 +44,13 @@ window.DECK_CONFIG = {
   portrait: "https://marckpetersen.github.io/who-is-oeberg/assets/images/marck.png",
 
   content: {
-    // TODO: input from Lars about Mind over Machine (Section 1).
-    // Leave empty to show a visible placeholder.
-    larsIntro: "",
-    larsName: "Lars"
+    // Text about Mind over Machine (Section 1), written from mindovermachine.dk
+    // and mindovermachine.dk/about. Replace it with Lars's own words if he sends
+    // some, and change introSource to e.g. "Lars, Mind over Machine".
+    larsIntro: "Mind over Machine is a non-profit foundation for regenerative software development: software that creates long-term value for people and society. It works as a think tank, a laboratory and a community of practice, where practitioners, researchers, students and decision-makers test ideas and share what they learn. You don’t need to be a developer, and there’s no commitment: start by showing up. Tonight is exactly that: a curious practitioner sharing an experiment, so we can explore it together.",
+    introSource: "About Mind over Machine · mindovermachine.dk"
   },
+
 
   // Backup demo screenshots (Section 5). The first one is the real screenshot
   // from your portfolio site. Add more files to assets/demo/ and list them here.

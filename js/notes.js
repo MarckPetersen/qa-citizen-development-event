@@ -20,7 +20,9 @@ window.SPEAKER_NOTES = {
       "Tonight is about curiosity, not a product pitch.",
       "Housekeeping: timings, coffee, toilets, Wi-Fi.",
       "Scroll down to the community part and hand over to Lars: what Mind over Machine is, why it exists, and how tonight fits in.",
-      "Reminder: replace the placeholder in js/config.js (content.larsIntro) once Lars has sent his text."
+      "Key points: non-profit foundation for regenerative software development; think tank, laboratory and community of practice; non-developers welcome, no commitment.",
+      "Mention Office Hours and Tech Talks as ways to stay involved after tonight.",
+      "If Lars sends his own words, replace content.larsIntro in js/config.js."
     ],
     humour: ["“If anything breaks tonight, it’s a live test. I’m a tester. I’ll log it.”"],
     transition: "“So who is the person who thought this would be a good idea? Let me introduce myself.”"
