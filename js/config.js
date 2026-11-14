@@ -61,10 +61,10 @@ window.DECK_CONFIG = {
   // assets/demo/ with these names (or change the names here). Missing images
   // show a placeholder box telling you which file to add.
   demoScreenshots: [
-    { group: "Advanced · Øberg TestLab", file: "https://marckpetersen.github.io/who-is-oeberg/assets/images/testcase-generator.png", caption: "AI-assisted Test Case Generator" },
-    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-02-criticality-level.png", caption: "Risk, criticality & test level" },
-    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-03-test-cases.png", caption: "Generated test cases" },
-    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-04-traceability.png", caption: "Traceability" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-01-requirements.png", caption: "Requirements: paste and check" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-02-ai-analysis.png", caption: "AI analysis: test conditions, ambiguities, assumptions, risks" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-03-test-design.png", caption: "Test design: levels and techniques with rationale. Accept, change or reject" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-04-test-cases.png", caption: "Test cases with review status: approved, rejected, draft" },
     { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-01-requirement.png", caption: "Enter one requirement (English or Danish)" },
     { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-02-test-ideas.png", caption: "Generated UAT test ideas, with a clarification note" },
     { group: "GitHub Codespaces", file: "assets/demo/codespaces-01-running.png", caption: "The app running in a Codespace" }
