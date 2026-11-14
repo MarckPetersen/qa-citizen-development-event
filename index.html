@@ -11,7 +11,7 @@
   <meta property="og:description" content="Exploring AI, Vibe Coding, No-Code and Citizen Development in Quality Engineering. Mind over Machine, 18 November 2026.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261114c">
+  <link rel="stylesheet" href="css/styles.css?v=20261114d">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -179,24 +179,6 @@
           <div class="scoreboard__row scoreboard__row--win"><span>Things learned</span><strong>Plenty!</strong></div>
         </div>
 
-        <div class="sim">
-          <div class="sim__text" data-reveal>
-            <span class="tag">Experiment #2</span>
-            <h3 class="h3">Airport Stand Allocation <span class="accent">Simulator</span> <span aria-hidden="true">✈️</span></h3>
-            <p>A live browser simulation of an airport. Arriving aircraft are automatically given the <strong>smallest suitable available stand</strong> based on their wingspan. If no stand fits, they wait in the ground waiting area until one is released.</p>
-            <p class="sim__why"><strong>Why build it?</strong> To make a production system visible in test and UAT. The rules it follows are exactly the requirements that must be retested when the real system is upgraded.</p>
-            <div class="chips chips--sm" data-stagger>
-              <span class="chip">📏 Allocation by wingspan</span>
-              <span class="chip">⏳ Ground waiting queue</span>
-              <span class="chip">📋 Live decisions &amp; event log</span>
-              <span class="chip chip--human">🔁 Requirements to retest</span>
-            </div>
-            <a class="btn btn--primary" data-link="standSimulator">Open the simulator ↗</a>
-          </div>
-          <button type="button" class="sim__shot" data-reveal data-lightbox="assets/airport-stand-simulator.png" data-caption="Airport Stand Allocation Simulator" aria-label="Enlarge screenshot of the Airport Stand Allocation Simulator">
-            <img src="assets/airport-stand-simulator.png" alt="Screenshot of the Airport Stand Allocation Simulator: stands A1 to A4, a taxiway, the runway, a ground waiting area, stand status, the latest allocation decision and an event log." loading="lazy">
-          </button>
-        </div>
       </div>
     </section>
 
@@ -206,9 +188,29 @@
         <header class="section-head" data-reveal>
           <span class="section-num">05</span>
           <h2 id="h-demo" class="h2">Let’s See What the <span class="accent">Machine</span> Can Do!</h2>
-          <p class="lead">From requirements to test cases, live.</p>
+          <p class="lead">A system under test, its requirements and the Test Case Generator, live.</p>
         </header>
 
+        <div class="sim sim--sut">
+          <div class="sim__text" data-reveal>
+            <span class="tag">System under test</span>
+            <h3 class="h3">Meet the system under test: <span class="accent">Airport Stand Allocation Simulator</span> <span aria-hidden="true">✈️</span></h3>
+            <p>For the demo, we pretend this simulator is a real system going through <strong>UAT</strong>. Arriving aircraft are automatically given the <strong>smallest suitable available stand</strong> based on their wingspan. If no stand fits, they wait in the ground waiting area until one is released.</p>
+            <p class="sim__why"><strong>The plan:</strong> take the requirements for this system, feed them into the Test Case Generator, and see which test cases come out. Then we review them, like testers.</p>
+            <div class="chips chips--sm" data-stagger>
+              <span class="chip">📏 Allocation by wingspan</span>
+              <span class="chip">⏳ Ground waiting queue</span>
+              <span class="chip">📋 Live decisions &amp; event log</span>
+              <span class="chip chip--human">📄 Requirements → test cases</span>
+            </div>
+            <a class="btn btn--primary" data-link="standSimulator">Open the simulator ↗</a>
+          </div>
+          <button type="button" class="sim__shot" data-reveal data-lightbox="assets/airport-stand-simulator.png" data-caption="Airport Stand Allocation Simulator: the system under test" aria-label="Enlarge screenshot of the Airport Stand Allocation Simulator">
+            <img src="assets/airport-stand-simulator.png" alt="Screenshot of the Airport Stand Allocation Simulator: stands A1 to A4, a taxiway, the runway, a ground waiting area, stand status, the latest allocation decision and an event log." loading="lazy">
+          </button>
+        </div>
+
+        <p class="flow-intro" data-reveal><span aria-hidden="true">↓</span> From the system’s requirements to test cases</p>
         <ol class="flow" data-stagger data-stagger-step="260" aria-label="Demo flow">
           <li><span class="flow__num">1</span><span class="flow__icon" aria-hidden="true">📄</span>Requirements / Test Basis</li>
           <li><span class="flow__num">2</span><span class="flow__icon" aria-hidden="true">🎯</span>Test Objectives</li>
@@ -362,9 +364,9 @@
 
   <div class="blackout" id="blackout" hidden></div>
 
-  <script src="js/config.js?v=20261114c"></script>
-  <script src="js/notes.js?v=20261114c"></script>
-  <script src="js/notes-render.js?v=20261114c"></script>
-  <script src="js/site.js?v=20261114c"></script>
+  <script src="js/config.js?v=20261114d"></script>
+  <script src="js/notes.js?v=20261114d"></script>
+  <script src="js/notes-render.js?v=20261114d"></script>
+  <script src="js/site.js?v=20261114d"></script>
 </body>
 </html>

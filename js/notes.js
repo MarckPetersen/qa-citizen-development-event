@@ -61,10 +61,7 @@ window.SPEAKER_NOTES = {
       "I described what I wanted. The AI wrote the code. I tested, gave feedback and decided.",
       "Not commercial, not finished, very much an ongoing experiment.",
       "The idea: turn requirements into structured test cases, using ISTQB terminology, test levels and objectives, product criticality and risk.",
-      "Traceability back to requirements, and human review as a built-in step, not an afterthought.",
-      "Experiment #2: the Airport Stand Allocation Simulator. Aircraft get the smallest suitable available stand by wingspan; if nothing fits, they wait in the ground waiting area.",
-      "Why: it makes a production system visible for test and UAT. Its rules are the requirements that must be retested when the real system is upgraded.",
-      "Optionally open the simulator (button or links.standSimulator) and let it run at 2× for 20–30 seconds while you talk."
+      "Traceability back to requirements, and human review as a built-in step, not an afterthought."
     ],
     humour: ["“My role was product owner, tester, and occasionally frustrated customer.”", "Point at the scoreboard: “The only metric that went up.”"],
     transition: "“Enough talking. Let’s see it.”"
@@ -72,12 +69,15 @@ window.SPEAKER_NOTES = {
 
   "demo": {
     talk: [
-      "Let the six steps animate in, and briefly walk through them before opening the tool.",
+      "Start with the system under test: the Airport Stand Allocation Simulator. We pretend it is a real system going through UAT.",
+      "Open the simulator and let it run at 2× for 20–30 seconds: aircraft get the smallest suitable available stand by wingspan; if nothing fits, they wait in the ground waiting area.",
+      "Explain the plan: the simulator’s requirements go into the Test Case Generator, and we look at the test cases that come out.",
+      "Then let the six steps animate in, and briefly walk through them before opening the Test Case Generator.",
       "Emphasise step 6: human review."
     ],
     demo: [
       "BEFORE THE EVENT: set links.liveDemo in js/config.js and check the URL works on the venue Wi-Fi.",
-      "Have a prepared requirement ready to paste. Keep it small and realistic.",
+      "Have the simulator’s requirements ready to paste into the Test Case Generator.",
       "Zoom the browser (Ctrl/Cmd +) so the back row can read it.",
       "Narrate what you’re doing and what you’re checking.",
       "Show at least one generated test case you would change or reject, and say why.",

@@ -206,9 +206,11 @@ body::after {
 .scoreboard__row strong { color: var(--warm); }
 .scoreboard__row--win strong { color: var(--human); }
 
-/* ---------- Simulator (experiment #2) ---------- */
+/* ---------- Simulator (system under test) ---------- */
 .sim { display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; margin-top: clamp(3.5rem, 9vh, 5.5rem); padding-top: clamp(2.5rem, 6vh, 3.5rem); border-top: 1px dashed var(--line-strong); }
+.sim--sut { margin-top: 0; padding-top: 0; border-top: 0; }
 .sim__text .h3 { margin-top: .8rem; }
+.flow-intro { margin: clamp(3rem, 8vh, 4.5rem) 0 1.2rem; font-family: var(--mono); font-size: var(--fs-small); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
 .sim__text p { color: var(--text-dim); margin-bottom: 1rem; }
 .sim__text strong { color: var(--text); }
 .sim__why { padding: .9rem 1.1rem; border-left: 3px solid var(--human); background: rgba(126,226,184,.06); border-radius: 0 10px 10px 0; }
