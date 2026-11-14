@@ -67,6 +67,7 @@ window.DECK_CONFIG = {
     { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-04-test-cases.png", caption: "Test cases with review status: approved, rejected, draft" },
     { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-01-requirement.png", caption: "Enter one requirement (English or Danish)" },
     { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-02-test-ideas.png", caption: "Generated UAT test ideas, with a clarification note" },
+    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-03-more-ideas.png", caption: "More test ideas, each with Copy, plus Copy all" },
     { group: "GitHub Codespaces", file: "assets/demo/codespaces-01-running.png", caption: "The app running in a Codespace" }
   ]
 };
