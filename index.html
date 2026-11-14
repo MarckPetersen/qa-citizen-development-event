@@ -11,7 +11,7 @@
   <meta property="og:description" content="Exploring AI, Vibe Coding, No-Code and Citizen Development in Quality Engineering. Mind over Machine, 18 November 2026.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261114e">
+  <link rel="stylesheet" href="css/styles.css?v=20261114f">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -265,13 +265,47 @@
           <li class="flow__human"><span class="flow__num">6</span><span class="flow__icon" aria-hidden="true">👀</span>Human Review</li>
         </ol>
 
-        <div class="demo-cta" data-reveal>
-          <a class="btn btn--primary btn--lg" data-link="liveDemo">Open the live Test Case Generator ↗</a>
-          <p class="hint">Opens in a new tab. Close it, or press <kbd>Alt</kbd>+<kbd>Tab</kbd>, to come back here.</p>
+        <div class="versions">
+          <h3 class="h3" data-reveal>Two versions: <span class="accent">advanced</span> and <span class="accent-2">simple</span></h3>
+          <div class="versions__grid" data-stagger>
+            <article class="version">
+              <span class="version__badge">Advanced</span>
+              <h4>Øberg TestLab</h4>
+              <p>The full journey: from requirements to structured, ISTQB-aligned test cases.</p>
+              <ul class="version__steps">
+                <li>Requirements</li><li>Risk &amp; criticality</li><li>Test level</li><li>ISTQB-aligned test cases</li><li>Traceability</li>
+              </ul>
+            </article>
+            <article class="version version--simple">
+              <span class="version__badge">Simple</span>
+              <h4>Øberg UAT Test Ideas</h4>
+              <p>Enter one requirement and get 5–8 concise UAT test ideas, in Danish or English.</p>
+              <ul class="version__steps">
+                <li>One requirement</li><li>5–8 UAT test ideas</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="codespaces" data-reveal>
+            <div class="codespaces__text">
+              <h4><span aria-hidden="true">☁️</span> Running live in GitHub Codespaces</h4>
+              <p>Both apps run in <strong>GitHub Codespaces</strong>: a ready-made development environment in the cloud, opened straight from GitHub. Nothing to install on this laptop.</p>
+            </div>
+            <ol class="codespaces__steps">
+              <li>Open the repository on GitHub</li>
+              <li>Start the Codespace</li>
+              <li>Start the Streamlit app, which opens in a new browser tab</li>
+              <li>Paste the requirements and generate</li>
+            </ol>
+            <div class="codespaces__cta">
+              <a class="btn btn--primary" data-link="codespaces">Open GitHub Codespaces ↗</a>
+              <p class="hint">Opens in a new tab. Close it, or press <kbd>Alt</kbd>+<kbd>Tab</kbd>, to come back here.</p>
+            </div>
+          </div>
         </div>
 
         <h3 class="h3" data-reveal>Backup demo <span class="muted">· because demos</span></h3>
-        <div class="shots" id="shotGrid" data-stagger><!-- filled from DECK_CONFIG.demoScreenshots --></div>
+        <div id="shotGroups"><!-- filled from DECK_CONFIG.demoScreenshots --></div>
       </div>
     </section>
 
@@ -409,9 +443,9 @@
 
   <div class="blackout" id="blackout" hidden></div>
 
-  <script src="js/config.js?v=20261114e"></script>
-  <script src="js/notes.js?v=20261114e"></script>
-  <script src="js/notes-render.js?v=20261114e"></script>
-  <script src="js/site.js?v=20261114e"></script>
+  <script src="js/config.js?v=20261114f"></script>
+  <script src="js/notes.js?v=20261114f"></script>
+  <script src="js/notes-render.js?v=20261114f"></script>
+  <script src="js/site.js?v=20261114f"></script>
 </body>
 </html>

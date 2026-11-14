@@ -72,29 +72,44 @@
     el.addEventListener("click", function () { openLightbox(el.getAttribute("data-lightbox"), el.getAttribute("data-caption")); });
   });
 
-  var shotGrid = $("#shotGrid");
-  (CFG.demoScreenshots || []).forEach(function (s) {
+  var shotGroups = $("#shotGroups");
+  var groups = {}, order = [];
+  (CFG.demoScreenshots || []).forEach(function (sh) {
+    var g = sh.group || "Screenshots";
+    if (!groups[g]) {
+      var wrap = document.createElement("div");
+      wrap.className = "shot-group";
+      var h = document.createElement("h4");
+      h.className = "shot-group__title";
+      h.textContent = g;
+      var grid = document.createElement("div");
+      grid.className = "shots";
+      grid.setAttribute("data-stagger", "");
+      wrap.appendChild(h); wrap.appendChild(grid);
+      shotGroups.appendChild(wrap);
+      groups[g] = grid; order.push(g);
+    }
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "shot";
     var img = new Image();
-    img.alt = s.caption || "";
-    img.src = s.file;
+    img.alt = sh.caption || "";
+    img.src = sh.file;
     var cap = document.createElement("span");
     cap.className = "shot__caption";
-    cap.textContent = s.caption || "";
+    cap.textContent = sh.caption || "";
     img.onerror = function () {
       btn.classList.add("shot--missing");
       btn.disabled = true;
       var ph = document.createElement("div");
       ph.className = "shot__placeholder";
-      ph.textContent = "Screenshot placeholder: add " + s.file;
+      ph.textContent = "Screenshot placeholder: add " + sh.file;
       btn.replaceChild(ph, img);
     };
     btn.appendChild(img);
     btn.appendChild(cap);
-    btn.addEventListener("click", function () { openLightbox(s.file, s.caption); });
-    shotGrid.appendChild(btn);
+    btn.addEventListener("click", function () { openLightbox(sh.file, (sh.group ? sh.group + " · " : "") + (sh.caption || "")); });
+    groups[g].appendChild(btn);
   });
 
   /* ---------- Scroll-triggered animations ---------- */

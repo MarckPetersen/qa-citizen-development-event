@@ -35,8 +35,10 @@ window.DECK_CONFIG = {
     // Airport Stand Allocation Simulator (Section 4)
     standSimulator: "https://marckpetersen.github.io/airport-stand-simulator/",
 
-    // TODO: URL of the live Test Case Generator used in the demo (Section 5)
-    liveDemo: "",
+    // GitHub Codespaces overview (Section 5). Both apps run in a Codespace on a
+    // private port, so there is no public app link. Change to the Codespace URL
+    // of a specific repo if you prefer.
+    codespaces: "https://github.com/codespaces",
 
     // TODO: public link to the Test Case Generator, only if you choose to share it (Section 8)
     testCaseGenerator: ""
@@ -55,13 +57,16 @@ window.DECK_CONFIG = {
   },
 
 
-  // Backup demo screenshots (Section 5). The first one is the real screenshot
-  // from your portfolio site. Add more files to assets/demo/ and list them here.
-  // Missing images show a placeholder box telling you which file to add.
+  // Backup demo screenshots (Section 5), shown in groups. Put the images in
+  // assets/demo/ with these names (or change the names here). Missing images
+  // show a placeholder box telling you which file to add.
   demoScreenshots: [
-    { file: "https://marckpetersen.github.io/who-is-oeberg/assets/images/testcase-generator.png", caption: "AI-assisted Test Case Generator" },
-    { file: "assets/demo/02-objectives.png",   caption: "Test objectives, level & criticality" },
-    { file: "assets/demo/03-test-cases.png",   caption: "Generated test cases" },
-    { file: "assets/demo/04-traceability.png", caption: "Traceability & human review" }
+    { group: "Advanced · Øberg TestLab", file: "https://marckpetersen.github.io/who-is-oeberg/assets/images/testcase-generator.png", caption: "AI-assisted Test Case Generator" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-02-criticality-level.png", caption: "Risk, criticality & test level" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-03-test-cases.png", caption: "Generated test cases" },
+    { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-04-traceability.png", caption: "Traceability" },
+    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-01-requirement.png", caption: "One requirement in" },
+    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-02-test-ideas.png", caption: "5–8 UAT test ideas out" },
+    { group: "GitHub Codespaces", file: "assets/demo/codespaces-01-running.png", caption: "The app running in a Codespace" }
   ]
 };

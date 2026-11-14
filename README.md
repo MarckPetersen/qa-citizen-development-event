@@ -46,7 +46,7 @@ Just scroll: mouse wheel, trackpad, `Space` / `PgDn`, or a presentation clicker.
 
 ### Live demo (Section 5)
 
-"Open the live Test Case Generator" opens the app in a new tab. To return, close the tab or press `Alt`+`Tab`; the page stays where you left it. If the demo or the internet fails, scroll to the backup screenshots and click one to enlarge it.
+The demo uses two apps that run in GitHub Codespaces: **Øberg TestLab** (advanced) and **Øberg UAT Test Ideas** (simple). Start both Codespaces before the session. "Open GitHub Codespaces" opens your Codespaces in a new tab. To return, close the tab or press `Alt`+`Tab`; the page stays where you left it. If the demo or the internet fails, scroll to the backup screenshots and click one to enlarge it.
 
 ### Ideas wall (Section 7)
 
@@ -58,7 +58,7 @@ Type audience ideas and press Enter. They are stored only in that browser (local
 
 | What | Where |
 |---|---|
-| Links (portfolio, LinkedIn, live demo, …) | `js/config.js` → `links` |
+| Links (portfolio, LinkedIn, Codespaces, …) | `js/config.js` → `links` |
 | Lars's text about Mind over Machine | `js/config.js` → `content.larsIntro` |
 | Portrait | `js/config.js` → `portrait` (currently from your portfolio site) |
 | Event details | `js/config.js` → `event` |
@@ -108,9 +108,9 @@ Pages is set to **Deploy from a branch → main → / (root)**. Every push to `m
 
 ## Before the event
 
-- [ ] Fill in `links.liveDemo` in `js/config.js`
+- [ ] Start the Codespaces for Øberg TestLab and Øberg UAT Test Ideas before the session
 - [ ] Add Lars's text (`content.larsIntro`)
-- [ ] Add more backup screenshots to `assets/demo/` (one real screenshot is already included from your portfolio)
+- [ ] Add backup screenshots to `assets/demo/` for the advanced and simple versions (file names in `js/config.js`)
 - [ ] Decide whether to share the Test Case Generator (`links.testCaseGenerator`)
 - [ ] Run `node tools/check.mjs`
 - [ ] Rehearse on the venue projector: fullscreen, presenter view, clicker
