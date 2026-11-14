@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What If QA Professionals Could Build Their Own Supporting Tools? · Mind over Machine</title>
+  <meta name="description" content="Interactive presentation by Marck Øberg Petersen for Mind over Machine, 18 November 2026, Copenhagen.">
+  <meta name="theme-color" content="#0a101c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#deck">Skip to presentation</a>
+
+  <!-- Progress bar -->
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+  <main id="deck" class="deck" aria-roledescription="presentation" aria-live="polite">
+
+    <!-- =====================================================================
+         SECTION 1 – Welcome to Mind over Machine
+         ===================================================================== -->
+    <section class="slide slide--title" data-id="welcome" data-section="1" data-section-title="Welcome to Mind over Machine" aria-label="Welcome">
+      <div class="slide__inner">
+        <p class="eyebrow">Mind over Machine presents</p>
+        <h1 class="display">Welcome to<br><span class="accent">Mind over Machine</span></h1>
+        <div class="title-card">
+          <p class="title-card__title" data-config-text="event.title"></p>
+          <p class="title-card__subtitle" data-config-text="event.subtitle"></p>
+        </div>
+        <ul class="meta-row" aria-label="Event details">
+          <li><span class="meta-row__label">When</span><span data-config-text="event.date"></span> · <span data-config-text="event.time"></span></li>
+          <li><span class="meta-row__label">Where</span><span data-config-text="event.venue"></span></li>
+          <li><span class="meta-row__label">Who</span><span data-config-text="event.presenter"></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-id="community" data-section="1" aria-label="About Mind over Machine">
+      <div class="slide__inner">
+        <p class="eyebrow">// the community</p>
+        <h2 class="headline">A place to explore technology, <span class="accent">together</span></h2>
+        <div class="pill-row" aria-label="What Mind over Machine is about">
+          <span class="pill">Technology</span>
+          <span class="pill">AI</span>
+          <span class="pill">Human creativity</span>
+          <span class="pill">Learning</span>
+          <span class="pill">Collaboration</span>
+        </div>
+        <figure class="quote-box" id="larsBox">
+          <blockquote data-config-text="content.larsIntro" data-placeholder="Placeholder: input from Lars about the community, its purpose and how tonight fits into its activities. Edit content.larsIntro in js/config.js."></blockquote>
+          <figcaption>— <span data-config-text="content.larsName"></span>, Mind over Machine</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2 – Who is Øberg?
+         ===================================================================== -->
+    <section class="slide" data-id="who-is-oberg" data-section="2" data-section-title="Who is Øberg?" aria-label="Who is Øberg?">
+      <div class="slide__inner split">
+        <div>
+          <p class="eyebrow">// section 02</p>
+          <h2 class="headline">Who is <span class="accent">Øberg?</span></h2>
+          <p class="lead">Quality. Curiosity. And a Little AI.</p>
+          <a class="btn btn--primary" data-link="portfolio" data-label="Visit “Who is Øberg?”">Visit “Who is Øberg?”</a>
+        </div>
+        <ul class="fact-list">
+          <li><span class="fact-list__icon" aria-hidden="true">◷</span>QA &amp; Test Management since <strong class="accent">&nbsp;1992</strong></li>
+          <li><span class="fact-list__icon" aria-hidden="true">⌖</span>Background in Quality &amp; Measurement Technology (Metrology)</li>
+          <li><span class="fact-list__icon" aria-hidden="true">◇</span>Software testing, quality engineering, test strategy &amp; risk-based testing</li>
+          <li><span class="fact-list__icon" aria-hidden="true">✓</span>ISTQB Advanced Test Manager &amp; Agile Tester</li>
+          <li><span class="fact-list__icon" aria-hidden="true">✈</span>Test Management at Copenhagen Airport</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide slide--statement" data-id="zero-lines" data-section="2" aria-label="Zero lines of code">
+      <div class="slide__inner center">
+        <div class="stat-grid">
+          <div class="stat"><span class="stat__num">30+</span><span class="stat__label">years in Quality &amp; Testing</span></div>
+          <div class="stat stat--zero"><span class="stat__num">0</span><span class="stat__label">lines of code written</span></div>
+          <div class="stat"><span class="stat__num">∞</span><span class="stat__label">still curious</span></div>
+        </div>
+        <p class="statement">30+ years in Quality and Testing. Zero lines of code written. <span class="accent">Still curious.</span></p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3 – Why AI, No-Code & Citizen Development?
+         ===================================================================== -->
+    <section class="slide" data-id="why" data-section="3" data-section-title="Why AI, No-Code &amp; Citizen Development?" aria-label="What if we could build our own supporting tools?">
+      <div class="slide__inner">
+        <p class="eyebrow">// section 03</p>
+        <h2 class="headline">What If We Could Build Our Own <span class="accent">Supporting Tools?</span></h2>
+        <div class="card-grid card-grid--4">
+          <article class="card fragment">
+            <span class="card__icon" aria-hidden="true">◎</span>
+            <h3>Artificial Intelligence</h3>
+            <p>Models that can understand a description and propose a solution.</p>
+          </article>
+          <article class="card fragment">
+            <span class="card__icon" aria-hidden="true">≈</span>
+            <h3>Vibe Coding</h3>
+            <p>Describing what you want in plain language and letting AI write the code.</p>
+          </article>
+          <article class="card fragment">
+            <span class="card__icon" aria-hidden="true">▦</span>
+            <h3>No-Code</h3>
+            <p>Building apps and workflows with visual tools instead of programming.</p>
+          </article>
+          <article class="card fragment">
+            <span class="card__icon" aria-hidden="true">☺</span>
+            <h3>Citizen Development</h3>
+            <p>Professionals outside IT building the tools their own work needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-id="opportunity" data-section="3" aria-label="The opportunity for QA">
+      <div class="slide__inner">
+        <p class="eyebrow">// the opportunity</p>
+        <h2 class="headline headline--md">AI-assisted development makes it <span class="accent">increasingly possible</span> to experiment with building software, without traditional programming skills.</h2>
+        <div class="two-col">
+          <div class="note-card">
+            <h3>For Quality Engineering</h3>
+            <p>Small, focused helpers for test design, analysis, reporting and traceability.</p>
+          </div>
+          <div class="note-card note-card--muted">
+            <h3>What it doesn’t mean</h3>
+            <p>It does not replace software development expertise, testing or human judgment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--statement" data-id="key-question" data-section="3" aria-label="Key question">
+      <div class="slide__inner center">
+        <p class="eyebrow">the key question</p>
+        <h2 class="display display--md">What happens when <span class="accent">professional QA knowledge</span> meets <span class="accent-2">AI-assisted development?</span></h2>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4 – The Hobby Experiment
+         ===================================================================== -->
+    <section class="slide" data-id="hobby" data-section="4" data-section-title="The Hobby Experiment" aria-label="The Hobby Experiment">
+      <div class="slide__inner">
+        <p class="eyebrow">// section 04</p>
+        <h2 class="headline">The Hobby <span class="accent">Experiment</span></h2>
+        <p class="lead">My personal AI-assisted Test Case Generator.</p>
+        <div class="two-col">
+          <ul class="check-list">
+            <li class="is-yes">Built in my spare time</li>
+            <li class="is-yes">Created with AI-assisted development</li>
+            <li class="is-yes">An ongoing learning experiment</li>
+          </ul>
+          <ul class="check-list">
+            <li class="is-no">No code manually written by me</li>
+            <li class="is-no">Not a commercial product</li>
+            <li class="is-no">Not a finished solution</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-id="what-it-explores" data-section="4" aria-label="What the experiment explores">
+      <div class="slide__inner">
+        <p class="eyebrow">// what it explores</p>
+        <h2 class="headline headline--md">Turning <span class="accent">requirements</span> into <span class="accent">structured test cases</span></h2>
+        <div class="chip-grid">
+          <span class="chip">ISTQB terminology</span>
+          <span class="chip">Test levels &amp; objectives</span>
+          <span class="chip">Product criticality</span>
+          <span class="chip">Risk-based testing</span>
+          <span class="chip">Traceability</span>
+          <span class="chip chip--human">Human review</span>
+        </div>
+        <div class="scoreboard" role="img" aria-label="Lines of code written by me: zero. Things learned: plenty.">
+          <div class="scoreboard__row"><span>Lines of code written by me</span><strong>Zero</strong></div>
+          <div class="scoreboard__row scoreboard__row--win"><span>Things learned</span><strong>Plenty!</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5 – Live Demo
+         ===================================================================== -->
+    <section class="slide" data-id="demo" data-section="5" data-section-title="Live Demo: From Requirements to Test Cases" aria-label="Live demo">
+      <div class="slide__inner">
+        <p class="eyebrow">// section 05 · live demo</p>
+        <h2 class="headline">Let’s See What the <span class="accent">Machine</span> Can Do!</h2>
+        <ol class="flow" aria-label="Demo flow">
+          <li class="flow__step fragment"><span class="flow__num">1</span>Requirements / Test Basis</li>
+          <li class="flow__step fragment"><span class="flow__num">2</span>Test Objectives</li>
+          <li class="flow__step fragment"><span class="flow__num">3</span>AI-assisted Test Design</li>
+          <li class="flow__step fragment"><span class="flow__num">4</span>Structured Test Cases</li>
+          <li class="flow__step fragment"><span class="flow__num">5</span>Traceability</li>
+          <li class="flow__step flow__step--human fragment"><span class="flow__num">6</span>Human Review</li>
+        </ol>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" data-link="liveDemo" data-label="Open the live Test Case Generator ↗">Open the live Test Case Generator ↗</a>
+          <button class="btn btn--ghost" type="button" data-goto="demo-backup">Backup demo</button>
+        </div>
+        <p class="hint">Opens in a new tab. Close it, or press <kbd>Alt</kbd>+<kbd>Tab</kbd>, to come back here.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-id="demo-backup" data-section="5" aria-label="Backup demo">
+      <div class="slide__inner">
+        <p class="eyebrow">// plan B · because demos</p>
+        <h2 class="headline headline--sm">Backup demo</h2>
+        <p class="lead">Real screenshots from the Test Case Generator. Click one to enlarge.</p>
+        <div class="shot-grid" id="shotGrid"><!-- filled from DECK_CONFIG.demoScreenshots --></div>
+      </div>
+      <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox__close btn btn--ghost" type="button" aria-label="Close screenshot">✕</button>
+        <img alt="">
+        <p class="lightbox__caption"></p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6 – What Could Possibly Go Wrong?
+         ===================================================================== -->
+    <section class="slide slide--statement" data-id="go-wrong" data-section="6" data-section-title="What Could Possibly Go Wrong?" aria-label="What could possibly go wrong?">
+      <div class="slide__inner center">
+        <p class="warning-label" role="note"><span aria-hidden="true">⚠</span> Warning: Traces of irony may occur!</p>
+        <h2 class="display display--md">My AI Generates All My Test Cases.<br><span class="accent">Quality Guaranteed.</span> <span class="wink">Right? <span aria-hidden="true">😅</span></span></h2>
+        <div class="fake-dashboard fragment" aria-label="Ironic dashboard">
+          <div><span class="fake-dashboard__num">1,247</span><span>test cases generated</span></div>
+          <div><span class="fake-dashboard__num">100%</span><span>confidence</span></div>
+          <div class="fake-dashboard__q"><span class="fake-dashboard__num">?</span><span>actual coverage</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-id="hard-questions" data-section="6" aria-label="Quality questions">
+      <div class="slide__inner">
+        <p class="eyebrow">// questions worth asking</p>
+        <h2 class="headline headline--sm">Before we celebrate…</h2>
+        <div class="question-grid">
+          <div class="q-card fragment"><span class="q-card__mark">?</span>Can AI really generate <strong>all relevant</strong> test cases?</div>
+          <div class="q-card fragment"><span class="q-card__mark">#</span>Does the <strong>number</strong> of test cases tell us when testing is complete?</div>
+          <div class="q-card fragment"><span class="q-card__mark">△</span>What about <strong>risk, coverage</strong> and <strong>missing requirements?</strong></div>
+          <div class="q-card fragment"><span class="q-card__mark">!</span>Can AI create <strong>false confidence?</strong></div>
+          <div class="q-card fragment"><span class="q-card__mark">◉</span><strong>Who reviews</strong> the generated test cases?</div>
+          <div class="q-card q-card--human fragment"><span class="q-card__mark">♥</span>Where does <strong>human judgment</strong> remain essential?</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 7 – Let's Explore Together
+         ===================================================================== -->
+    <section class="slide" data-id="explore" data-section="7" data-section-title="Let’s Explore Together" aria-label="What could you build?">
+      <div class="slide__inner">
+        <p class="eyebrow">// section 07 · your turn</p>
+        <h2 class="headline">What Could <span class="accent">You</span> Build?</h2>
+        <ol class="discussion">
+          <li class="fragment"><span class="discussion__num">1</span>What supporting tool would make your QA or testing work easier?</li>
+          <li class="fragment"><span class="discussion__num">2</span>What could you build with AI and No-Code?</li>
+          <li class="fragment"><span class="discussion__num">3</span>Where would you still need professional judgment and quality controls?</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide" data-id="ideas" data-section="7" aria-label="Audience ideas wall">
+      <div class="slide__inner slide__inner--wide">
+        <div class="ideas-head">
+          <div>
+            <p class="eyebrow">// ideas wall</p>
+            <h2 class="headline headline--sm">Your ideas</h2>
+          </div>
+          <form class="ideas-form" id="ideasForm" autocomplete="off">
+            <label class="sr-only" for="ideaInput">Add an idea</label>
+            <input id="ideaInput" type="text" maxlength="140" placeholder="Type an idea from the room and press Enter…">
+            <select id="ideaType" aria-label="Idea category">
+              <option value="tool">Tool idea</option>
+              <option value="build">Could build</option>
+              <option value="judgment">Needs judgment</option>
+            </select>
+            <button class="btn btn--primary" type="submit">Add</button>
+          </form>
+        </div>
+        <ul class="ideas-wall" id="ideasWall" aria-live="polite"></ul>
+        <div class="ideas-actions">
+          <span class="hint" id="ideasHint">Ideas are stored only in this browser. Nothing is sent anywhere.</span>
+          <button class="btn btn--ghost btn--sm" type="button" id="ideasExport">Download ideas (.txt)</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="ideasClear">Clear wall</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 8 – Wrap-up & What's Next?
+         ===================================================================== -->
+    <section class="slide" data-id="wrap-up" data-section="8" data-section-title="Wrap-up &amp; What’s Next?" aria-label="Wrap-up">
+      <div class="slide__inner">
+        <p class="eyebrow">// section 08</p>
+        <h2 class="headline">Come Curious. <span class="accent">Leave Inspired.</span></h2>
+        <ul class="takeaways">
+          <li class="fragment">Domain knowledge <strong>still matters.</strong></li>
+          <li class="fragment">AI creates new opportunities to <strong>experiment.</strong></li>
+          <li class="fragment">Building software does not automatically mean <strong>building quality.</strong></li>
+          <li class="fragment">Human judgment remains <strong>essential.</strong></li>
+          <li class="fragment">We learn more when we <strong>explore together.</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide slide--title" data-id="thanks" data-section="8" aria-label="Thank you and links">
+      <div class="slide__inner center">
+        <p class="closing">Not a developer. Not an AI expert.<br><span class="accent">Just a curious Test Manager exploring what might be possible.</span></p>
+        <div class="link-grid">
+          <a class="link-card" data-link="mindOverMachine" data-label="Mind over Machine">Mind over Machine</a>
+          <a class="link-card" data-link="portfolio" data-label="Who is Øberg?">Who is Øberg?</a>
+          <a class="link-card" data-link="github" data-label="GitHub">GitHub</a>
+          <a class="link-card" data-link="linkedin" data-label="LinkedIn">LinkedIn</a>
+          <a class="link-card" data-link="testCaseGenerator" data-label="Test Case Generator" data-hide-if-empty>Test Case Generator</a>
+        </div>
+        <p class="signoff">Let’s experiment, question and learn together! <span aria-hidden="true">☕🤖</span></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer / chrome -->
+  <footer class="chrome" id="chrome">
+    <div class="chrome__left">
+      <span class="chrome__brand">Mind over Machine</span>
+      <span class="chrome__section" id="sectionLabel"></span>
+    </div>
+    <nav class="chrome__controls" aria-label="Presentation controls">
+      <button type="button" class="icon-btn" id="btnPrev" aria-label="Previous slide" title="Previous (←)">‹</button>
+      <span class="chrome__counter" id="counter" aria-live="off">1 / 1</span>
+      <button type="button" class="icon-btn" id="btnNext" aria-label="Next slide" title="Next (→ / Space)">›</button>
+      <span class="chrome__sep" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" id="btnAgenda" aria-label="Agenda" title="Agenda (Esc / A)">☰</button>
+      <button type="button" class="icon-btn" id="btnNotes" aria-label="Toggle speaker notes" title="Speaker notes (N)">✎</button>
+      <button type="button" class="icon-btn" id="btnPresenter" aria-label="Open presenter view" title="Presenter view (P)">⧉</button>
+      <button type="button" class="icon-btn" id="btnFullscreen" aria-label="Toggle fullscreen" title="Fullscreen (F)">⛶</button>
+      <button type="button" class="icon-btn" id="btnHelp" aria-label="Keyboard shortcuts" title="Shortcuts (?)">?</button>
+    </nav>
+  </footer>
+
+  <!-- Agenda overlay -->
+  <div class="overlay" id="agenda" role="dialog" aria-modal="true" aria-labelledby="agendaTitle" hidden>
+    <div class="overlay__panel">
+      <p class="eyebrow">Tonight</p>
+      <h2 id="agendaTitle" class="headline headline--sm">Agenda</h2>
+      <ol class="agenda-list" id="agendaList"></ol>
+      <p class="hint">Click a section, or press <kbd>1</kbd>–<kbd>8</kbd>. <kbd>Esc</kbd> closes.</p>
+    </div>
+  </div>
+
+  <!-- Help overlay -->
+  <div class="overlay" id="help" role="dialog" aria-modal="true" aria-labelledby="helpTitle" hidden>
+    <div class="overlay__panel overlay__panel--sm">
+      <h2 id="helpTitle" class="headline headline--sm">Keyboard shortcuts</h2>
+      <dl class="shortcuts">
+        <dt><kbd>→</kbd> <kbd>Space</kbd> <kbd>PgDn</kbd></dt><dd>Next step / slide</dd>
+        <dt><kbd>←</kbd> <kbd>PgUp</kbd></dt><dd>Previous step / slide</dd>
+        <dt><kbd>Home</kbd> <kbd>End</kbd></dt><dd>First / last slide</dd>
+        <dt><kbd>Esc</kbd> <kbd>A</kbd></dt><dd>Agenda</dd>
+        <dt><kbd>1</kbd>–<kbd>8</kbd></dt><dd>Jump to section (from agenda)</dd>
+        <dt><kbd>F</kbd></dt><dd>Fullscreen</dd>
+        <dt><kbd>N</kbd></dt><dd>Speaker notes on this screen</dd>
+        <dt><kbd>P</kbd></dt><dd>Presenter view (separate window)</dd>
+        <dt><kbd>B</kbd></dt><dd>Blank screen</dd>
+        <dt><kbd>?</kbd></dt><dd>This help</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- Speaker notes panel (hidden by default) -->
+  <aside class="notes-panel" id="notesPanel" aria-label="Speaker notes" hidden>
+    <div class="notes-panel__head">
+      <strong>Speaker notes</strong><span id="notesSlideTitle"></span>
+      <button type="button" class="icon-btn icon-btn--sm" id="notesClose" aria-label="Hide speaker notes">✕</button>
+    </div>
+    <div class="notes-panel__body" id="notesBody"></div>
+  </aside>
+
+  <div class="blackout" id="blackout" hidden></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/notes.js"></script>
+  <script src="js/notes-render.js"></script>
+  <script src="js/deck.js"></script>
+</body>
+</html>
