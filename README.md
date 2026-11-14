@@ -71,6 +71,10 @@ Empty links show as **"link coming soon"** and can't be clicked. Lars's placehol
 
 **Animations:** add `data-reveal` to an element to fade it in on scroll, or `data-stagger` to a container to bring in its children one after another (`data-stagger-step="300"` sets the delay in milliseconds). Visitors who have "reduce motion" turned on in their system settings see everything immediately, without animation.
 
+## After changing a file
+
+The links to the CSS and JS files end in `?v=…` (in `index.html` and `presenter.html`). When you change a file, change that version (for example to today's date) so browsers load the new copy instead of an old saved one. If you still see an old version, press **Ctrl + F5** (Mac: **Cmd + Shift + R**).
+
 ## Checks
 
 ```bash

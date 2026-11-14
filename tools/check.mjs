@@ -59,7 +59,7 @@ for (const s of cfg.demoScreenshots || []) {
 }
 
 console.log("\nFiles & safety:");
-for (const f of [...html.matchAll(/(?:src|href)="((?:css|js|assets)\/[^"]+)"/g)].map((m) => m[1])) {
+for (const f of [...html.matchAll(/(?:src|href)="((?:css|js|assets)\/[^"?]+)(?:\?[^"]*)?"/g)].map((m) => m[1])) {
   existsSync(path.join(root, f)) ? null : fail(`referenced file missing: ${f}`);
 }
 ok("referenced local files checked");
