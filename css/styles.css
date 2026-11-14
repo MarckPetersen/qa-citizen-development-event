@@ -206,6 +206,18 @@ body::after {
 .scoreboard__row strong { color: var(--warm); }
 .scoreboard__row--win strong { color: var(--human); }
 
+/* ---------- Simulator (experiment #2) ---------- */
+.sim { display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; margin-top: clamp(3.5rem, 9vh, 5.5rem); padding-top: clamp(2.5rem, 6vh, 3.5rem); border-top: 1px dashed var(--line-strong); }
+.sim__text .h3 { margin-top: .8rem; }
+.sim__text p { color: var(--text-dim); margin-bottom: 1rem; }
+.sim__text strong { color: var(--text); }
+.sim__why { padding: .9rem 1.1rem; border-left: 3px solid var(--human); background: rgba(126,226,184,.06); border-radius: 0 10px 10px 0; }
+.chips--sm { margin: 1.2rem 0 1.6rem; gap: .5rem; }
+.chips--sm .chip { font-size: var(--fs-small); padding: .45em .9em; }
+.sim__shot { padding: 0; border: 1px solid var(--line-strong); border-radius: var(--radius-lg); overflow: hidden; background: #070c17; cursor: zoom-in; box-shadow: 0 30px 70px rgba(0,0,0,.45); transition: border-color 200ms, transform 300ms var(--ease), opacity 800ms var(--ease); }
+.sim__shot:hover { border-color: var(--accent); }
+.sim__shot img { width: 100%; }
+
 /* ---------- Demo flow ---------- */
 .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; position: relative; }
 .flow li { position: relative; padding: 1.3rem 1rem; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius); font-weight: 650; line-height: 1.3; min-height: 9.5em; }
@@ -327,7 +339,7 @@ body::after {
   .nav__menu a span { display: none; }
 }
 @media (max-width: 1000px) {
-  .hero, .about { grid-template-columns: 1fr; }
+  .hero, .about, .sim { grid-template-columns: 1fr; }
   .about .portrait { max-width: 320px; }
   .cards--4 { grid-template-columns: repeat(2, 1fr); }
   .flow { grid-template-columns: repeat(3, 1fr); }

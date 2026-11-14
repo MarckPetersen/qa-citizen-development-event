@@ -32,6 +32,9 @@ window.DECK_CONFIG = {
     // Your LinkedIn profile (as linked from your portfolio)
     linkedin: "https://www.linkedin.com/in/marckpetersen/",
 
+    // Airport Stand Allocation Simulator (Section 4)
+    standSimulator: "https://marckpetersen.github.io/airport-stand-simulator/",
+
     // TODO: URL of the live Test Case Generator used in the demo (Section 5)
     liveDemo: "",
 

@@ -11,7 +11,7 @@
   <meta property="og:description" content="Exploring AI, Vibe Coding, No-Code and Citizen Development in Quality Engineering. Mind over Machine, 18 November 2026.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261114b">
+  <link rel="stylesheet" href="css/styles.css?v=20261114c">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -178,6 +178,25 @@
           <div class="scoreboard__row"><span>Lines of code written by me</span><strong>Zero</strong></div>
           <div class="scoreboard__row scoreboard__row--win"><span>Things learned</span><strong>Plenty!</strong></div>
         </div>
+
+        <div class="sim">
+          <div class="sim__text" data-reveal>
+            <span class="tag">Experiment #2</span>
+            <h3 class="h3">Airport Stand Allocation <span class="accent">Simulator</span> <span aria-hidden="true">✈️</span></h3>
+            <p>A live browser simulation of an airport. Arriving aircraft are automatically given the <strong>smallest suitable available stand</strong> based on their wingspan. If no stand fits, they wait in the ground waiting area until one is released.</p>
+            <p class="sim__why"><strong>Why build it?</strong> To make a production system visible in test and UAT. The rules it follows are exactly the requirements that must be retested when the real system is upgraded.</p>
+            <div class="chips chips--sm" data-stagger>
+              <span class="chip">📏 Allocation by wingspan</span>
+              <span class="chip">⏳ Ground waiting queue</span>
+              <span class="chip">📋 Live decisions &amp; event log</span>
+              <span class="chip chip--human">🔁 Requirements to retest</span>
+            </div>
+            <a class="btn btn--primary" data-link="standSimulator">Open the simulator ↗</a>
+          </div>
+          <button type="button" class="sim__shot" data-reveal data-lightbox="assets/airport-stand-simulator.png" data-caption="Airport Stand Allocation Simulator" aria-label="Enlarge screenshot of the Airport Stand Allocation Simulator">
+            <img src="assets/airport-stand-simulator.png" alt="Screenshot of the Airport Stand Allocation Simulator: stands A1 to A4, a taxiway, the runway, a ground waiting area, stand status, the latest allocation decision and an event log." loading="lazy">
+          </button>
+        </div>
       </div>
     </section>
 
@@ -343,9 +362,9 @@
 
   <div class="blackout" id="blackout" hidden></div>
 
-  <script src="js/config.js?v=20261114b"></script>
-  <script src="js/notes.js?v=20261114b"></script>
-  <script src="js/notes-render.js?v=20261114b"></script>
-  <script src="js/site.js?v=20261114b"></script>
+  <script src="js/config.js?v=20261114c"></script>
+  <script src="js/notes.js?v=20261114c"></script>
+  <script src="js/notes-render.js?v=20261114c"></script>
+  <script src="js/site.js?v=20261114c"></script>
 </body>
 </html>

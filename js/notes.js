@@ -61,7 +61,10 @@ window.SPEAKER_NOTES = {
       "I described what I wanted. The AI wrote the code. I tested, gave feedback and decided.",
       "Not commercial, not finished, very much an ongoing experiment.",
       "The idea: turn requirements into structured test cases, using ISTQB terminology, test levels and objectives, product criticality and risk.",
-      "Traceability back to requirements, and human review as a built-in step, not an afterthought."
+      "Traceability back to requirements, and human review as a built-in step, not an afterthought.",
+      "Experiment #2: the Airport Stand Allocation Simulator. Aircraft get the smallest suitable available stand by wingspan; if nothing fits, they wait in the ground waiting area.",
+      "Why: it makes a production system visible for test and UAT. Its rules are the requirements that must be retested when the real system is upgraded.",
+      "Optionally open the simulator (button or links.standSimulator) and let it run at 2× for 20–30 seconds while you talk."
     ],
     humour: ["“My role was product owner, tester, and occasionally frustrated customer.”", "Point at the scoreboard: “The only metric that went up.”"],
     transition: "“Enough talking. Let’s see it.”"

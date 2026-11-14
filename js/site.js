@@ -68,6 +68,10 @@
   $(".lightbox__close", lightbox).addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeLightbox(); });
 
+  $$("[data-lightbox]").forEach(function (el) {
+    el.addEventListener("click", function () { openLightbox(el.getAttribute("data-lightbox"), el.getAttribute("data-caption")); });
+  });
+
   var shotGrid = $("#shotGrid");
   (CFG.demoScreenshots || []).forEach(function (s) {
     var btn = document.createElement("button");
