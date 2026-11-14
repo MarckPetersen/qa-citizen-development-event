@@ -65,8 +65,8 @@ window.DECK_CONFIG = {
     { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-02-criticality-level.png", caption: "Risk, criticality & test level" },
     { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-03-test-cases.png", caption: "Generated test cases" },
     { group: "Advanced · Øberg TestLab", file: "assets/demo/advanced-04-traceability.png", caption: "Traceability" },
-    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-01-requirement.png", caption: "One requirement in" },
-    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-02-test-ideas.png", caption: "5–8 UAT test ideas out" },
+    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-01-requirement.png", caption: "Enter one requirement (English or Danish)" },
+    { group: "Simple · Øberg UAT Test Ideas", file: "assets/demo/simple-02-test-ideas.png", caption: "Generated UAT test ideas, with a clarification note" },
     { group: "GitHub Codespaces", file: "assets/demo/codespaces-01-running.png", caption: "The app running in a Codespace" }
   ]
 };
