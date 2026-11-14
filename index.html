@@ -11,7 +11,7 @@
   <meta property="og:description" content="Exploring AI, Vibe Coding, No-Code and Citizen Development in Quality Engineering. Mind over Machine, 18 November 2026.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261114d">
+  <link rel="stylesheet" href="css/styles.css?v=20261114e">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -210,7 +210,52 @@
           </button>
         </div>
 
-        <p class="flow-intro" data-reveal><span aria-hidden="true">↓</span> From the system’s requirements to test cases</p>
+        <div class="reqs" id="requirements">
+          <div class="reqs__head" data-reveal>
+            <div>
+              <span class="tag">Business rules · UAT</span>
+              <h3 class="h3">Requirements for the system under test</h3>
+              <p class="reqs__lead">A selection of the functional UAT requirements. These are what we feed into the Test Case Generator.</p>
+            </div>
+            <button type="button" class="btn btn--ghost" id="copyReqs">📋 Copy requirements</button>
+          </div>
+          <ol class="reqs__list" data-stagger data-stagger-step="140">
+            <li class="req req--wide">
+              <span class="req__id">BR-001</span>
+              <h4>Smallest Suitable Available Stand</h4>
+              <p>When an aircraft arrives, the system must assign the smallest available stand capable of accommodating its wingspan: <code>stand.maxWingspan &gt;= aircraft.wingspan</code>. Among all eligible available stands, select the one with the lowest maximum wingspan. If the preferred stand is unavailable, select the next smallest suitable available stand.</p>
+              <p class="req__examples"><span>Examples:</span> <span class="ex">20 m → A1</span> <span class="ex">35 m → A2</span> <span class="ex">50 m → A3</span> <span class="ex">65 m → A4 (if available)</span></p>
+              <p>A 35 m aircraft must be assigned to A3 if A2 is unavailable and A3 is available. Allocation must always be calculated from actual stand availability and aircraft wingspan.</p>
+            </li>
+            <li class="req">
+              <span class="req__id">BR-002</span>
+              <h4>Exclusive Stand Allocation</h4>
+              <p>Only one aircraft may reserve or occupy a stand at any time.</p>
+            </li>
+            <li class="req">
+              <span class="req__id">BR-003</span>
+              <h4>Ground Waiting Queue</h4>
+              <p>If no suitable stand is available, the aircraft must taxi to a dedicated ground waiting area.</p>
+            </li>
+            <li class="req req--wide">
+              <span class="req__id">BR-004</span>
+              <h4>Waiting Queue Reallocation</h4>
+              <p>Whenever a stand becomes available, the system must reevaluate waiting aircraft. Prioritize waiting aircraft by arrival order, while allowing a later aircraft to use a stand that an earlier aircraft cannot physically accommodate. When multiple stands are available, apply the smallest-suitable-stand rule. Queue allocation must be deterministic and must not create duplicate reservations.</p>
+            </li>
+            <li class="req">
+              <span class="req__id">BR-005</span>
+              <h4>Stand Release</h4>
+              <p>A stand becomes available only when the departing aircraft has physically cleared the stand.</p>
+            </li>
+            <li class="req req--warn">
+              <span class="req__id">BR-006</span>
+              <h4>Oversized Aircraft</h4>
+              <p>Aircraft with wingspans greater than 70 m must not receive a parking stand. The system should identify such aircraft as unsupported rather than placing them indefinitely in the waiting queue.</p>
+            </li>
+          </ol>
+        </div>
+
+        <p class="flow-intro" data-reveal><span aria-hidden="true">↓</span> From these requirements to test cases</p>
         <ol class="flow" data-stagger data-stagger-step="260" aria-label="Demo flow">
           <li><span class="flow__num">1</span><span class="flow__icon" aria-hidden="true">📄</span>Requirements / Test Basis</li>
           <li><span class="flow__num">2</span><span class="flow__icon" aria-hidden="true">🎯</span>Test Objectives</li>
@@ -364,9 +409,9 @@
 
   <div class="blackout" id="blackout" hidden></div>
 
-  <script src="js/config.js?v=20261114d"></script>
-  <script src="js/notes.js?v=20261114d"></script>
-  <script src="js/notes-render.js?v=20261114d"></script>
-  <script src="js/site.js?v=20261114d"></script>
+  <script src="js/config.js?v=20261114e"></script>
+  <script src="js/notes.js?v=20261114e"></script>
+  <script src="js/notes-render.js?v=20261114e"></script>
+  <script src="js/site.js?v=20261114e"></script>
 </body>
 </html>

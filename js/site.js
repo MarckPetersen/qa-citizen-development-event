@@ -323,6 +323,37 @@
     }
   });
 
+  /* ---------- Copy requirements (for pasting into the Test Case Generator) ---------- */
+  var copyBtn = $("#copyReqs");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var lines = ["Business rules – Airport Stand Allocation Simulator (system under test)", ""];
+      $$(".req").forEach(function (r) {
+        var id = $(".req__id", r).textContent.trim();
+        var title = $("h4", r).textContent.trim();
+        var body = $$("p", r).map(function (p) { return p.textContent.replace(/\s+/g, " ").trim(); }).join(" ");
+        lines.push(id + " " + title + ". " + body);
+        lines.push("");
+      });
+      var text = lines.join("\n").trim();
+      var label = copyBtn.textContent;
+      function done(ok) {
+        copyBtn.textContent = ok ? "✓ Copied" : "Copy failed: select the text manually";
+        copyBtn.classList.toggle("is-copied", ok);
+        setTimeout(function () { copyBtn.textContent = label; copyBtn.classList.remove("is-copied"); }, 2500);
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+        ta.remove(); done(ok);
+      }
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+      else fallback();
+    });
+  }
+
   /* ---------- Ideas wall (browser-only storage) ---------- */
   var IDEAS_KEY = "qa-citizen-dev-ideas";
   var TYPE_LABEL = { tool: "Tool idea", build: "Could build", judgment: "Needs judgment" };

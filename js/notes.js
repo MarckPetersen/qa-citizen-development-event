@@ -72,12 +72,14 @@ window.SPEAKER_NOTES = {
       "Start with the system under test: the Airport Stand Allocation Simulator. We pretend it is a real system going through UAT.",
       "Open the simulator and let it run at 2× for 20–30 seconds: aircraft get the smallest suitable available stand by wingspan; if nothing fits, they wait in the ground waiting area.",
       "Explain the plan: the simulator’s requirements go into the Test Case Generator, and we look at the test cases that come out.",
+      "Scroll to the six business rules (BR-001 to BR-006). Highlight BR-001 (smallest suitable stand, incl. the A2-unavailable example) and BR-006 (oversized aircraft must be flagged, not queued forever).",
+      "Ask the room: which of these rules would you test first, and how would you know you had tested enough?",
       "Then let the six steps animate in, and briefly walk through them before opening the Test Case Generator.",
       "Emphasise step 6: human review."
     ],
     demo: [
       "BEFORE THE EVENT: set links.liveDemo in js/config.js and check the URL works on the venue Wi-Fi.",
-      "Have the simulator’s requirements ready to paste into the Test Case Generator.",
+      "Click ‘Copy requirements’ under the business rules, then paste them into the Test Case Generator.",
       "Zoom the browser (Ctrl/Cmd +) so the back row can read it.",
       "Narrate what you’re doing and what you’re checking.",
       "Show at least one generated test case you would change or reject, and say why.",
